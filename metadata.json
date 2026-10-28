@@ -1,0 +1,8 @@
+{
+  "name": "SQL-Refinery",
+  "description": "AI-assisted SQL optimization with correctness verification and DuckDB performance benchmarking studio.",
+  "requestFeedback": false,
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

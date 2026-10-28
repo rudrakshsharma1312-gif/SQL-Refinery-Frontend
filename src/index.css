@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-canvas: #FBF6F4;
+    --bg-hero: #FADCD6;
+    --bg-card: #FFFFFF;
+    --bg-card-muted: #F8EFEA;
+    --border-warm: #EFE4E0;
+    --border-accent: #E25C47;
+    --ink-primary: #141519;
+    --ink-secondary: #575A65;
+    --ink-muted: #8E92A0;
+    --accent-coral: #E25C47;
+    --accent-coral-hover: #D04E3A;
+    --accent-sage: #287452;
+    --accent-sage-bg: #E8F5EF;
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--ink-primary);
+    font-family: 'Plus Jakarta Sans', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+  }
+}
+
+/* Factotum-inspired card styles */
+.factotum-card {
+  background: #FFFFFF;
+  border: 1px solid #EFE4E0;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px -2px rgba(226, 92, 71, 0.04), 0 1px 3px 0 rgba(0, 0, 0, 0.02);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.factotum-card:hover {
+  box-shadow: 0 8px 24px -4px rgba(226, 92, 71, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.03);
+}
+
+.factotum-hero-card {
+  background: #FADCD6;
+  border-radius: 28px;
+  border: 1px solid #F3C9C0;
+  box-shadow: 0 10px 30px -8px rgba(226, 92, 71, 0.08);
+}
+
+/* Editorial pill buttons with smooth hover lift, click press-down, and focus rings */
+.btn-ink {
+  background-color: #141519;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  padding: 10px 22px;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(20, 21, 25, 0.12);
+  user-select: none;
+}
+
+.btn-ink:hover:not(:disabled) {
+  background-color: #262830;
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 16px rgba(20, 21, 25, 0.2);
+}
+
+.btn-ink:active:not(:disabled) {
+  transform: translateY(0.5px) scale(0.985);
+  box-shadow: 0 1px 3px rgba(20, 21, 25, 0.15);
+}
+
+.btn-ink:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(20, 21, 25, 0.25), 0 0 0 1px #FFFFFF;
+}
+
+.btn-coral {
+  background-color: #E25C47;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  padding: 10px 22px;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(226, 92, 71, 0.25);
+  user-select: none;
+}
+
+.btn-coral:hover:not(:disabled) {
+  background-color: #D04E3A;
+  transform: translateY(-1.5px);
+  box-shadow: 0 8px 20px rgba(226, 92, 71, 0.35);
+}
+
+.btn-coral:active:not(:disabled) {
+  transform: translateY(0.5px) scale(0.985);
+  box-shadow: 0 2px 6px rgba(226, 92, 71, 0.2);
+}
+
+.btn-coral:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(226, 92, 71, 0.35), 0 0 0 1px #FFFFFF;
+}
+
+/* Subtle interactive pill chips */
+.chip-interactive {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.chip-interactive:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.chip-interactive:active:not(:disabled) {
+  transform: translateY(0.5px) scale(0.98);
+}
+
+.chip-interactive:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(226, 92, 71, 0.4);
+}
+
+/* Keyframes for subtle sliding and fading animations */
+@keyframes slideFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.65;
+    transform: scale(0.99);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.01);
+  }
+}
+
+@keyframes shimmerWave {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-slide-up {
+  animation: slideFadeUp 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-down {
+  animation: slideFadeDown 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(226, 92, 71, 0.05) 25%, rgba(226, 92, 71, 0.15) 50%, rgba(226, 92, 71, 0.05) 75%);
+  background-size: 200% 100%;
+  animation: shimmerWave 2s infinite linear;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .btn-ink:hover:not(:disabled),
+  .btn-coral:hover:not(:disabled),
+  .chip-interactive:hover:not(:disabled) {
+    transform: none !important;
+  }
+}
+
+/* Refined custom scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F4EAE6;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8C7C2;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #BFAEA8;
+}
